@@ -1,10 +1,11 @@
-import { SET_ALGORITHM } from './../actions';
+import { SET_ALGORITHM, SET_ARRAY_SIZE } from '../actions';
 
 const initialState = {
+    arraySize: 10,
     algorithmIndex: 0
 };
 
-const algorithmReducer = (state = initialState, action) => {
+const topBarReducer = (state = initialState, action) => {
     if(!state){
         return state;
     }
@@ -15,9 +16,15 @@ const algorithmReducer = (state = initialState, action) => {
                 ...state,
                 algorithmIndex: algorithmIndex
             }
+        case SET_ARRAY_SIZE:
+            const { arraySize } = action.payload;
+            return {
+                ...state,
+                arraySize: arraySize
+            }
         default:
             return state;
     }
 }
 
-export default algorithmReducer;
+export default topBarReducer;

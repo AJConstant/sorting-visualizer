@@ -5,4 +5,7 @@ const available_algorithms = [
     'Insertion Sort'
 ]
 
-export default available_algorithms;
+const array_sizes = [5, 10, 25, 50, 75, 100, 150]
+
+export {available_algorithms};
+export {array_sizes};

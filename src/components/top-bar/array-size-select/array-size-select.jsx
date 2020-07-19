@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 import { Menu, MenuItem, Button } from "@material-ui/core";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import { available_algorithms } from '../../../algorithms/algorithms';
+import { array_sizes } from '../../../algorithms/algorithms';
 
 const styles = theme => ({
     selectionButton: {
@@ -11,7 +11,7 @@ const styles = theme => ({
     },
 });
 
-class SortingSelect extends React.Component {
+class ArraySizeSelect extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -23,8 +23,8 @@ class SortingSelect extends React.Component {
             anchorEl: event.currentTarget
         });
     }
-    handleAlgorithmSelection = (index) => {
-        this.props.setAlgorithm(index);
+    handleArraySizeSelection = (index) => {
+        this.props.setArraySize(index);
         this.setState({
             anchorEl: null
         });
@@ -36,11 +36,11 @@ class SortingSelect extends React.Component {
     }
     render() {
         const {classes} = this.props;
-        const {selectedAlgorithm} = this.props;
+        const {arraySize} = this.props;
         return (
             <div className={classes.selectionButton}>
-                <Button aria-controls="algorithm-select" aria-haspopup="true" onClick={this.openMenu}>
-                    {selectedAlgorithm}
+                <Button aria-controls="array-size-select" aria-haspopup="true" onClick={this.openMenu}>
+                    {`Array size: ${arraySize}`}
                     <ArrowDropDownIcon></ArrowDropDownIcon>
                 </Button>
                 <Menu
@@ -53,11 +53,11 @@ class SortingSelect extends React.Component {
                     open={Boolean(this.state.anchorEl)}
                     onClose={this.handleClose}
                 >
-                    {available_algorithms.map((algo, index) => (
+                    {array_sizes.map(size => (
                         <MenuItem
-                            key={algo}
-                            onClick={() => this.handleAlgorithmSelection(index)}
-                        >{algo}</MenuItem>
+                            key={size}
+                            onClick={() => this.handleArraySizeSelection(size)}
+                        >{size}</MenuItem>
                     ))}
                 </Menu>
             </div>
@@ -65,4 +65,4 @@ class SortingSelect extends React.Component {
     }
 }
 
-export default withStyles(styles)(SortingSelect);
+export default withStyles(styles)(ArraySizeSelect);
