@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import TopBar from "./top-bar/top-bar-container";
+import VisualizerBody from "./visualizer-body/visualizer-body";
 
 class App extends Component {
-    render(){
+    render() {
         return (
-            <TopBar></TopBar>
+            <div>
+                <TopBar></TopBar>
+                <VisualizerBody></VisualizerBody>
+            </div>
         )
     }
 }

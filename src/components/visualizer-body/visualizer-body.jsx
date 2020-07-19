@@ -1,11 +1,13 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
-class VisualizerBody extends React.Component{
-    render(){
-        <div>
-            <Typography>Hello App Body</Typography>
-        </div>
+class VisualizerBody extends React.Component {
+    render() {
+        return (
+            <div>
+                <Typography>Hello App Body</Typography>
+            </div>
+        )
     }
 }
 
