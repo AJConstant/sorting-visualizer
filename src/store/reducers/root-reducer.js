@@ -1,3 +1,6 @@
 import { combineReducers } from "redux";
+import algorithmReducer from "./sorting-select-reducer";
 
-export default combineReducers({});
+const rootReducer = combineReducers({algorithmReducer});
+
+export default rootReducer;

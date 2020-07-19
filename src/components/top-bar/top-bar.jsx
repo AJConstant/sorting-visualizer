@@ -2,7 +2,7 @@ import React from "react";
 import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
 import { Typography } from "@material-ui/core";
-import SortingSelect from "./sorting-select/sorting-select";
+import SortingSelect from "./sorting-select/sorting-select-container";
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
