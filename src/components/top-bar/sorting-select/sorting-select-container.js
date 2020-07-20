@@ -6,7 +6,7 @@ import { setAlgorithm } from '../../../store/actions';
 const mapStateToProps = state => {
     return{
         classes: state.classes,
-        selectedAlgorithm: available_algorithms[state.topBarReducer.algorithmIndex],
+        selectedAlgorithm: available_algorithms[state.settings.algorithmIndex],
     }
 }
 

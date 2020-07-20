@@ -1,7 +1,7 @@
-import { SET_ALGORITHM, SET_ARRAY_SIZE } from '../actions';
+import { SET_ALGORITHM } from '../actions';
 
 const initialState = {
-    arraySize: 10,
+    initialArraySize: 10,
     algorithmIndex: 0
 };
 
@@ -15,12 +15,6 @@ const topBarReducer = (state = initialState, action) => {
             return {
                 ...state,
                 algorithmIndex: algorithmIndex
-            }
-        case SET_ARRAY_SIZE:
-            const { arraySize } = action.payload;
-            return {
-                ...state,
-                arraySize: arraySize
             }
         default:
             return state;
