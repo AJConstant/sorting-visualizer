@@ -15,17 +15,20 @@ class ArraySizeSelect extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            arraySizeSelected: this.props.initialArraySize,
             anchorEl: null
         }
     }
+
     openMenu = (event) => {
         this.setState({
             anchorEl: event.currentTarget
         });
     }
-    handleArraySizeSelection = (index) => {
-        this.props.setArraySize(index);
+    handleArraySizeSelection = (size) => {
+        this.props.createArray(size);
         this.setState({
+            arraySizeSelected: size,
             anchorEl: null
         });
     }
@@ -36,11 +39,10 @@ class ArraySizeSelect extends React.Component {
     }
     render() {
         const {classes} = this.props;
-        const {arraySize} = this.props;
         return (
             <div className={classes.selectionButton}>
                 <Button aria-controls="array-size-select" aria-haspopup="true" onClick={this.openMenu}>
-                    {`Array size: ${arraySize}`}
+                    {`Array size: ${this.state.arraySizeSelected}`}
                     <ArrowDropDownIcon></ArrowDropDownIcon>
                 </Button>
                 <Menu

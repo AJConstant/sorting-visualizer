@@ -1,1 +1,0 @@
-export const getSelectedAlgorithmIndex = store => store.algorithmIndex;

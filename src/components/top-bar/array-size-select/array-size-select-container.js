@@ -1,16 +1,23 @@
 import { connect } from 'react-redux';
 import ArraySizeSelect from './array-size-select';
-import { setArraySize } from '../../../store/actions';
+import { setArray } from '../../../store/actions';
 
 const mapStateToProps = state => {
+    console.log(state);
     return{
         classes: state.classes,
-        arraySize: state.topBarReducer.arraySize
+        initialArraySize: state.settings.initialArraySize
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    setArraySize: index => dispatch(setArraySize(index)),
+    createArray: arraySize => {
+        let array = [];
+        while (array.length < arraySize) {
+            array.push(Math.floor(Math.random() * 200) + 5);
+        }
+        dispatch(setArray(array));
+    },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArraySizeSelect);
