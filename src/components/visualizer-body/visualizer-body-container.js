@@ -7,7 +7,11 @@ const mapStateToProps = state => {
         classes: state.classes,
         selectedAlgorithm: available_algorithms[state.settings.algorithmIndex],
         arraySize: state.settings.arraySize,
-        array: state.arrayState.array
+        array: state.arrayState.array,
+        compared: state.arrayState.compared,
+        toSwap: state.arrayState.toSwap,
+        sorted: state.arrayState.sorted,
+        pivot: state.arrayState.pivot
     }
 }
 

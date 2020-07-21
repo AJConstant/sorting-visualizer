@@ -1,12 +1,11 @@
 import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 import { Menu, MenuItem, Button } from "@material-ui/core";
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropDownSharpIcon from '@material-ui/icons/ArrowDropDownSharp';
 import { array_sizes } from '../../../algorithms/algorithms';
 
 const styles = theme => ({
     selectionButton: {
-        paddingTop: theme.spacing(1),
         minWidth: 120,
     },
 });
@@ -38,12 +37,19 @@ class ArraySizeSelect extends React.Component {
         })
     }
     render() {
-        const {classes} = this.props;
+        const {
+            classes,
+            running
+        } = this.props;
         return (
             <div className={classes.selectionButton}>
-                <Button aria-controls="array-size-select" aria-haspopup="true" onClick={this.openMenu}>
+                <Button 
+                    aria-controls="array-size-select" 
+                    aria-haspopup="true"
+                    disabled={running} 
+                    onClick={this.openMenu}>
                     {`Array size: ${this.state.arraySizeSelected}`}
-                    <ArrowDropDownIcon></ArrowDropDownIcon>
+                    <ArrowDropDownSharpIcon></ArrowDropDownSharpIcon>
                 </Button>
                 <Menu
                     id="algorithm-select-menu"

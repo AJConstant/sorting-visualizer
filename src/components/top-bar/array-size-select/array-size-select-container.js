@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import ArraySizeSelect from './array-size-select';
-import { setArray } from '../../../store/actions';
+import { setArray, resetMetaData } from '../../../store/actions';
 
 const mapStateToProps = state => {
-    console.log(state);
     return{
         classes: state.classes,
-        initialArraySize: state.settings.initialArraySize
+        initialArraySize: state.settings.initialArraySize,
+        running: state.arrayState.running
     }
 }
 
@@ -17,6 +17,7 @@ const mapDispatchToProps = dispatch => ({
             array.push(Math.floor(Math.random() * 200) + 5);
         }
         dispatch(setArray(array));
+        dispatch(resetMetaData());
     },
 })
 
