@@ -15,9 +15,23 @@ const styles = theme => ({
     },
     arrayElement: {
         backgroundColor: theme.palette.primary.light,
+        marginLeft: '3px',
+    },
+    arrayElementCompared: {
+        backgroundColor: theme.palette.warning.light,
+        marginLeft: '3px',
+    },
+    arrayElementToSwap: {
+        backgroundColor: theme.palette.error.light,
+        marginLeft: '3px',
+    },
+    arrayElementSorted: {
+        backgroundColor: theme.palette.success.light,
         marginLeft: '3px'
     },
-    arrayBody: {
+    arrayElementPartition: {
+        backgroundColor: theme.palette.secondary.light,
+        marginLeft: '3px'
     }
 })
 
@@ -47,6 +61,10 @@ class VisualizerBody extends React.Component {
         const {
             classes,
             array,
+            compared,
+            toSwap,
+            sorted,
+            pivot,
         } = this.props;
         return (
             <div className={classes.root}>
@@ -54,15 +72,22 @@ class VisualizerBody extends React.Component {
                     container
                     justify="center"
                     alignItems="center"
-                    spacing={3}
+                    spacing={1}
                     className={classes.arrayBody}>
                     {array && array.length ? array.map((num, index) => {
                         return (
-                            <div className={classes.arrayElement}
+                            <div
+                                className={
+                                    toSwap.includes(index) ? classes.arrayElementToSwap :
+                                        compared.includes(index) ? classes.arrayElementCompared :
+                                            sorted.includes(index) ? classes.arrayElementSorted :
+                                                pivot.includes(index) ? classes.arrayElementPartition :
+                                                    classes.arrayElement}
                                 style={{
                                     width: `${this.getWidth(array.length)}px`,
                                     height: `${2 * num}px`
-                                }}></div>
+                                }}
+                                key={index}></div>
                         )
                     }) : null}
                 </Grid>

@@ -7,6 +7,7 @@ const mapStateToProps = state => {
     return{
         classes: state.classes,
         selectedAlgorithm: available_algorithms[state.settings.algorithmIndex],
+        running: state.arrayState.running
     }
 }
 
