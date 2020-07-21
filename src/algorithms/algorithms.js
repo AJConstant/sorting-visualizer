@@ -1,9 +1,10 @@
-import { setCompared, setToSwap, setRunning, setPivot, resetMetaData } from '../store/actions';
+import { setCompared, setToSwap, setRunning, setPivot } from '../store/actions';
 
 const available_algorithms = [
     'Bubble Sort',
     'Merge Sort',
     'Quick Sort',
+    'Insertion Sort'
 ]
 
 const array_sizes = [5, 10, 25, 50, 75, 100, 150]
