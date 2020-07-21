@@ -4,7 +4,8 @@ const available_algorithms = [
     'Bubble Sort',
     'Merge Sort',
     'Quick Sort',
-    'Insertion Sort'
+    'Insertion Sort',
+    'Heap Sort'
 ]
 
 const array_sizes = [5, 10, 25, 50, 75, 100, 150]

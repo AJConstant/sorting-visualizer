@@ -5,6 +5,7 @@ import  bubbleSort from '../../../algorithms/bubble-sort';
 import mergeSort from '../../../algorithms/merge-sort';
 import quickSort from '../../../algorithms/quick-sort';
 import insertionSort from '../../../algorithms/insertion_sort';
+import heapSort from '../../../algorithms/heap_sort';
 
 const mapStateToProps = state => {
     return{
@@ -31,6 +32,9 @@ const mapDispatchToProps = dispatch => ({
                 return;
             case 3:
                 insertionSort(array, dispatch);
+                return;
+            case 4:
+                heapSort(array, dispatch);
                 return;
             default:
                 return;
