@@ -1,4 +1,4 @@
-import { setArray, setCompared, setPivot, setToSwap, setSorted } from '../store/actions';
+import { setArray, setPivot, setToSwap, setSorted } from '../store/actions';
 import updateState from './algorithms';
 
 const partition = (array, startIdx, endIdx, updates, sorted) => {
