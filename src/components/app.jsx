@@ -15,7 +15,7 @@ const styles = theme => ({
 class App extends Component {
     // Create initial array
     componentDidMount() {
-        this.props.createArray(this.props.settings.initialArraySize);
+        this.props.createArray(this.props.settings.arraySize);
     }
     render() {
         const { classes } = this.props;

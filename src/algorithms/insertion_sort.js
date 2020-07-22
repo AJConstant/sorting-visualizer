@@ -25,7 +25,7 @@ const insertionSort = (array, dispatch) => {
     }
     sorted.push(len-1);
     trace.push(setSorted(sorted.slice(0)));
-    updateState(trace, dispatch);
+    updateState(trace, dispatch, array.length);
     return tempArray;
 }
 

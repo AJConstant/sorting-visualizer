@@ -12,7 +12,7 @@ const mapStateToProps = state => {
         classes: state.classes,
         selectedIndex: state.settings.algorithmIndex,
         running: state.arrayState.running,
-        array: state.arrayState.array
+        array: state.arrayState.array,
     }
 }
 

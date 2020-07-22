@@ -5,6 +5,7 @@ export const SET_TO_SWAP = "SET_TO_SWAP";
 export const SET_RUNNING = "SET_RUNNING";
 export const SET_SORTED = "SET_SORTED";
 export const SET_PIVOT = "SET_PIVOT";
+export const SET_ARRAY_SIZE = "SET_ARRAY_SIZE";
 export const RESET_META_DATA = "RESET_META_DATA";
 
 /** Settings Actions */
@@ -21,6 +22,13 @@ export const setRunning = running => ({
         running: running
     }
 });
+
+export const setArraySize = size => ({
+    type: SET_ARRAY_SIZE,
+    payload: {
+        arraySize: size
+    }
+})
 
 /** Sorting Actions */
 export const resetMetaData = () => ({

@@ -46,7 +46,7 @@ const heapSort = (arrayState, dispatch) => {
     }
     sorted.push(0);
     trace.push(setSorted(sorted.slice(0)));
-    updateState(trace, dispatch);
+    updateState(trace, dispatch, array.length);
     return array;
 }
 

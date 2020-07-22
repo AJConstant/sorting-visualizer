@@ -15,20 +15,31 @@ const available_algorithms = [
 ]
 
 const array_sizes = [5, 10, 25, 50, 75, 100, 150]
+const sorting_animation_delays = [500, 250, 100, 50, 25, 0, 0]
 
-const updateState = (updates, dispatch) => {
-    if (!updates.length) {
+const mapArraySizeToSpeed = (arraySize) => {
+    const idx = array_sizes.indexOf(arraySize);
+    return sorting_animation_delays[idx === -1? 2 : idx];
+}
+
+const updateState = (trace, dispatch, arraySize) => {
+    const speed = mapArraySizeToSpeed(arraySize);
+    updateStateHelper(trace, dispatch, speed);
+};
+
+const updateStateHelper = (trace, dispatch, speed) => {
+    if (!trace.length) {
         dispatch(setCompared([]));
         dispatch(setToSwap([]));
         dispatch(setPivot([]));
         dispatch(setRunning(false));
         return;
     }
-    dispatch(updates.shift());
+    dispatch(trace.shift());
     setTimeout(() => {
-        updateState(updates, dispatch)
-    }, 5)
-};
+        updateStateHelper(trace, dispatch, speed)
+    }, speed)
+}
 
 const createArray = (arraySize, dispatch) => {
     let array = [];

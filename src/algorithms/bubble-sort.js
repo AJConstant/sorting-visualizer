@@ -1,7 +1,7 @@
 import { setCompared, setToSwap, setArray, setSorted } from '../store/actions';
 import { updateState } from './algorithm-util';
 
-const bubbleSort = async (array, dispatch) => {
+const bubbleSort = (array, dispatch) => {
     const len = array.length;
     // This is a trace of the algorithm
     let trace = [];
@@ -15,16 +15,16 @@ const bubbleSort = async (array, dispatch) => {
                 let temp = tempArray[j];
                 tempArray[j] = tempArray[j + 1];
                 tempArray[j + 1] = temp;
+                trace.push(setArray(tempArray.slice(0)));
+                trace.push(setToSwap([]));
             }
-            trace.push(setArray(tempArray.slice(0)));
-            trace.push(setToSwap([]));
         }
         sorted.push(len-i-1);
         trace.push(setSorted(sorted.slice()));
     }
     sorted.push(0);
     trace.push(setSorted(sorted.slice()));
-    updateState(trace, dispatch);
+    updateState(trace, dispatch, array.length);
     return array;
 }
 

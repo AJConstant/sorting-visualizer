@@ -1,7 +1,7 @@
 import { setArray, setSorted } from '../store/actions';
 import { updateState } from './algorithm-util';
 
-const merge = (arr1, arr2, startIdx, endIdx, updates, inPlaceObj, sorted) => {
+const merge = (arr1, arr2, startIdx, endIdx, trace, inPlaceObj, sorted) => {
     let merged = [];
     let shouldSetSorted = arr1.length + arr2.length === inPlaceObj.array.length;
     let pass = 0;
@@ -13,18 +13,18 @@ const merge = (arr1, arr2, startIdx, endIdx, updates, inPlaceObj, sorted) => {
             inPlaceObj.array = inPlaceObj.array.slice(0, startIdx)
                 .concat(merged).concat(arr1).concat(arr2)
                 .concat(inPlaceObj.array.slice(endIdx + 1));
-            updates.push(setArray(inPlaceObj.array.slice()));
+                trace.push(setArray(inPlaceObj.array.slice()));
         }
         if(shouldSetSorted){
             sorted.push(pass);
-            updates.push(setSorted(sorted.slice(0)));
+            trace.push(setSorted(sorted.slice(0)));
         }
         pass++;
     }
     if(shouldSetSorted){
         while(pass <= inPlaceObj.array.length){
             sorted.push(pass);
-            updates.push(setSorted(sorted.slice(0)));
+            trace.push(setSorted(sorted.slice(0)));
             pass++;
         }
     }
@@ -32,10 +32,10 @@ const merge = (arr1, arr2, startIdx, endIdx, updates, inPlaceObj, sorted) => {
 }
 
 const mergeSort = (array, dispatch) => {
-    let updates = [];
+    let trace = [];
     let sorted = [];
-    mergeSortHelper(array, 0, array.length - 1, dispatch, updates, { array: array.slice() }, sorted);
-    updateState(updates, dispatch);
+    mergeSortHelper(array, 0, array.length - 1, dispatch, trace, { array: array.slice() }, sorted);
+    updateState(trace, dispatch, array.length);
 }
 
 /**
