@@ -78,10 +78,10 @@ class VisualizerBody extends React.Component {
                         return (
                             <div
                                 className={
-                                    toSwap.includes(index) ? classes.arrayElementToSwap :
-                                        compared.includes(index) ? classes.arrayElementCompared :
-                                            sorted.includes(index) ? classes.arrayElementSorted :
-                                                pivot.includes(index) ? classes.arrayElementPartition :
+                                    pivot.includes(index) ? classes.arrayElementPartition :
+                                        toSwap.includes(index) ? classes.arrayElementToSwap :
+                                            compared.includes(index) ? classes.arrayElementCompared :
+                                                sorted.includes(index) ? classes.arrayElementSorted :
                                                     classes.arrayElement}
                                 style={{
                                     width: `${this.getWidth(array.length)}px`,
