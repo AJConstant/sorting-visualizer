@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 import { Menu, MenuItem, Button } from "@material-ui/core";
 import ArrowDropDownSharpIcon from '@material-ui/icons/ArrowDropDownSharp';
-import { array_sizes } from '../../../algorithms/algorithms';
+import { array_sizes } from '../../../algorithms/algorithm-util';
 
 const styles = theme => ({
     selectionButton: {

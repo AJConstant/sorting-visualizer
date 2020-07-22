@@ -1,5 +1,5 @@
 import { setArray, setCompared, setToSwap, setSorted } from '../store/actions';
-import updateState from './algorithms';
+import { updateState } from './algorithm-util';
 
 
 const insertionSort = (array, dispatch) => {

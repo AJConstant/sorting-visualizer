@@ -2,6 +2,7 @@ import React from "react";
 import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
 import RunButton from './run-button/run-button-container';
+import RandomizeButton from './randomize-button/randomize-button-container';
 import { Typography } from "@material-ui/core";
 import SortingSelect from "./sorting-select/sorting-select-container";
 import ArraySizeSelect from "./array-size-select/array-size-select-container";
@@ -32,7 +33,8 @@ const styles = theme => ({
         borderRadius: theme.shape.borderRadius,
         paddingRight: theme.spacing(4),
         paddingLeft: theme.spacing(4),
-        marginLeft: theme.spacing(4)
+        marginLeft: theme.spacing(4),
+        marginRight: theme.spacing(4)
     }
 });
 
@@ -51,6 +53,7 @@ class TopBar extends React.Component {
                         <Grid container className={classes.grid}>
                             <SortingSelect className={classes.dropdownButton}></SortingSelect>
                             <ArraySizeSelect className={classes.dropdownButton}></ArraySizeSelect>
+                            <RandomizeButton className={classes.runButton}></RandomizeButton>
                             <RunButton className={classes.runButton}></RunButton>
                         </Grid>
                     </ToolBar>

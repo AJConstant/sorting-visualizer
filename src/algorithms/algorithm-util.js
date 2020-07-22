@@ -1,4 +1,10 @@
-import { setCompared, setToSwap, setRunning, setPivot } from '../store/actions';
+import { 
+    setCompared, 
+    setToSwap, 
+    setRunning, 
+    setPivot,
+    setArray,
+    resetMetaData } from '../store/actions';
 
 const available_algorithms = [
     'Bubble Sort',
@@ -22,9 +28,19 @@ const updateState = (updates, dispatch) => {
     setTimeout(() => {
         updateState(updates, dispatch)
     }, 5)
-}
+};
+
+const createArray = (arraySize, dispatch) => {
+    let array = [];
+    while (array.length < arraySize) {
+        array.push(Math.floor(Math.random() * 200) + 5);
+    }
+    dispatch(setArray(array));
+    dispatch(resetMetaData());
+};
 
 
-export {available_algorithms};
-export {array_sizes};
-export default updateState;
+export { available_algorithms };
+export { array_sizes };
+export { createArray };
+export { updateState };

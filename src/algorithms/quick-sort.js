@@ -1,5 +1,5 @@
 import { setArray, setPivot, setToSwap, setSorted } from '../store/actions';
-import updateState from './algorithms';
+import { updateState } from './algorithm-util';
 
 const partition = (array, startIdx, endIdx, updates, sorted) => {
     let i = startIdx - 1;

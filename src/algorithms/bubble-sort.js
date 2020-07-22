@@ -1,5 +1,5 @@
 import { setCompared, setToSwap, setArray, setSorted } from '../store/actions';
-import updateState from '../algorithms/algorithms';
+import { updateState } from './algorithm-util';
 
 const bubbleSort = async (array, dispatch) => {
     const len = array.length;

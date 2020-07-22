@@ -1,4 +1,4 @@
-import { available_algorithms } from '../../algorithms/algorithms';
+import { available_algorithms } from '../../algorithms/algorithm-util';
 import { connect } from 'react-redux';
 import VisualizerBody from './visualizer-body';
 
