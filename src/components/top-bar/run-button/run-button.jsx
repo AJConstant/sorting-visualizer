@@ -12,13 +12,10 @@ const styles = theme => ({
         paddingRight: '10px',
         color: theme.palette.secondary.main
     },
-    circularProgress: {        
+    circularProgress: {
         color: theme.palette.secondary.main,
         marginLeft: theme.spacing(1)
     },
-    arrowIcon: {
-        paddingLeft: theme.spacing(1)
-    }
 });
 
 class RunButton extends React.Component {
@@ -34,13 +31,13 @@ class RunButton extends React.Component {
             <div>
                 <Button
                     variant="contained"
-                    className={running? classes.runButtonDisabled : classes.runButton}
+                    className={running ? classes.runButtonDisabled : classes.runButton}
                     disabled={running}
-                    onClick={this.handleClick}>{`Sort`}
-                    {running?
+                    onClick={this.handleClick}
+                    endIcon={running ?
                         <CircularProgress className={classes.circularProgress} size={20}></CircularProgress> :
-                        <ArrowForwardIosSharpIcon className={classes.arrowIcon}></ArrowForwardIosSharpIcon>
-                }
+                        <ArrowForwardIosSharpIcon />
+                    }>{`Sort`}
                 </Button>
             </div>
         )

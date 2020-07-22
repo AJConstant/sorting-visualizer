@@ -1,4 +1,4 @@
-import updateState from './algorithms';
+import { updateState } from './algorithm-util';
 import { setArray, setSorted, setToSwap } from '../store/actions';
 
 

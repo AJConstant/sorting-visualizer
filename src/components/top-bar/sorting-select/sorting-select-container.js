@@ -1,4 +1,4 @@
-import { available_algorithms } from '../../../algorithms/algorithms.js';
+import { available_algorithms } from '../../../algorithms/algorithm-util';
 import { connect } from 'react-redux';
 import SortingSelect from './sorting-select';
 import { setAlgorithm } from '../../../store/actions';

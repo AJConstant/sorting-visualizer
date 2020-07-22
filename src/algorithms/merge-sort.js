@@ -1,5 +1,5 @@
 import { setArray, setSorted } from '../store/actions';
-import updateState from './algorithms';
+import { updateState } from './algorithm-util';
 
 const merge = (arr1, arr2, startIdx, endIdx, updates, inPlaceObj, sorted) => {
     let merged = [];
