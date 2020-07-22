@@ -14,7 +14,6 @@ class ArraySizeSelect extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            arraySizeSelected: this.props.initialArraySize,
             anchorEl: null
         }
     }
@@ -25,9 +24,9 @@ class ArraySizeSelect extends React.Component {
         });
     }
     handleArraySizeSelection = (size) => {
+        this.props.setSize(size);
         this.props.createArray(size);
         this.setState({
-            arraySizeSelected: size,
             anchorEl: null
         });
     }
@@ -39,7 +38,8 @@ class ArraySizeSelect extends React.Component {
     render() {
         const {
             classes,
-            running
+            running,
+            arraySize
         } = this.props;
         return (
             <div className={classes.root}>
@@ -48,7 +48,7 @@ class ArraySizeSelect extends React.Component {
                     disabled={running}
                     onClick={this.openMenu}
                     endIcon={<ArrowDropDownSharpIcon />}>
-                    {`Array size: ${this.state.arraySizeSelected}`}
+                    {`Array size: ${arraySize}`}
                 </Button>
                 <Menu
                     id="algorithm-select-menu"
