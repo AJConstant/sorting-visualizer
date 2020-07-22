@@ -19,22 +19,17 @@ const styles = theme => ({
         marginRight: 'auto',
     },
     title: {
-        width: '60%',
+        width: '50%',
         paddingRight: theme.spacing(4),
         paddingLeft: theme.spacing(4)
     },
-    dropdownButton: {
+    button: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        paddingRight: theme.spacing(4),
-    },
-    runButton: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        paddingRight: theme.spacing(4),
-        paddingLeft: theme.spacing(4),
-        marginLeft: theme.spacing(4),
-        marginRight: theme.spacing(4)
+        paddingRight: theme.spacing(2),
+        paddingLeft: theme.spacing(2),
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2)
     }
 });
 
@@ -51,10 +46,10 @@ class TopBar extends React.Component {
                             Sorting Visualizer
                         </Typography>
                         <Grid container className={classes.grid}>
-                            <SortingSelect className={classes.dropdownButton}></SortingSelect>
-                            <ArraySizeSelect className={classes.dropdownButton}></ArraySizeSelect>
-                            <RandomizeButton className={classes.runButton}></RandomizeButton>
-                            <RunButton className={classes.runButton}></RunButton>
+                            <SortingSelect className={classes.button}></SortingSelect>
+                            <ArraySizeSelect className={classes.button}></ArraySizeSelect>
+                            <RandomizeButton className={classes.button}></RandomizeButton>
+                            <RunButton className={classes.button}></RunButton>
                         </Grid>
                     </ToolBar>
                 </AppBar>

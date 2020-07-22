@@ -5,13 +5,13 @@ import ArrowDropDownSharpIcon from '@material-ui/icons/ArrowDropDownSharp';
 import { array_sizes } from '../../../algorithms/algorithm-util';
 
 const styles = theme => ({
-    selectionButton: {
-        minWidth: 120,
+    root: {
+        marginRight: theme.spacing(1)
     },
 });
 
 class ArraySizeSelect extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             arraySizeSelected: this.props.initialArraySize,
@@ -42,20 +42,19 @@ class ArraySizeSelect extends React.Component {
             running
         } = this.props;
         return (
-            <div className={classes.selectionButton}>
-                <Button 
-                    aria-controls="array-size-select" 
-                    aria-haspopup="true"
-                    disabled={running} 
-                    onClick={this.openMenu}>
+            <div className={classes.root}>
+                <Button
+                    variant="outlined"
+                    disabled={running}
+                    onClick={this.openMenu}
+                    endIcon={<ArrowDropDownSharpIcon />}>
                     {`Array size: ${this.state.arraySizeSelected}`}
-                    <ArrowDropDownSharpIcon></ArrowDropDownSharpIcon>
                 </Button>
                 <Menu
                     id="algorithm-select-menu"
                     anchorEl={this.state.anchorEl}
                     getContentAnchorEl={null}
-                    anchorOrigin={{ vertical: "bottom", horizontal: "center"}}
+                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                     transformOrigin={{ vertical: "top", horizontal: "center" }}
                     keepMounted
                     open={Boolean(this.state.anchorEl)}

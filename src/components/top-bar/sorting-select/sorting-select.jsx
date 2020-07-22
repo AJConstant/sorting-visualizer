@@ -5,8 +5,8 @@ import ArrowDropDownSharpIcon from '@material-ui/icons/ArrowDropDownSharp';
 import { available_algorithms } from '../../../algorithms/algorithm-util';
 
 const styles = theme => ({
-    selectionButton: {
-        minWidth: 120,
+    root: {
+        marginRight: theme.spacing(1)
     },
 });
 
@@ -40,14 +40,13 @@ class SortingSelect extends React.Component {
             running
         } = this.props;
         return (
-            <div className={classes.selectionButton}>
+            <div className={classes.root}>
                 <Button 
-                    aria-controls="algorithm-select" 
-                    aria-haspopup="true"
+                    variant="outlined"
                     disabled={running} 
-                    onClick={this.openMenu}>
+                    onClick={this.openMenu}
+                    endIcon={<ArrowDropDownSharpIcon />}>
                     {selectedAlgorithm}
-                    <ArrowDropDownSharpIcon></ArrowDropDownSharpIcon>
                 </Button>
                 <Menu
                     id="algorithm-select-menu"

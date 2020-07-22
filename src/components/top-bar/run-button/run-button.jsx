@@ -5,11 +5,9 @@ import { withStyles } from '@material-ui/core';
 
 const styles = theme => ({
     runButton: {
-        paddingRight: '10px',
         color: theme.palette.primary.dark
     },
     runButtonDisabled: {
-        paddingRight: '10px',
         color: theme.palette.secondary.main
     },
     circularProgress: {
