@@ -7,6 +7,8 @@ export const SET_SORTED = "SET_SORTED";
 export const SET_PIVOT = "SET_PIVOT";
 export const SET_ARRAY_SIZE = "SET_ARRAY_SIZE";
 export const RESET_META_DATA = "RESET_META_DATA";
+export const SET_TRACE = "SET_TRACE";
+export const SET_IN_PLAYBACK = "SET_IN_PLAYBACK";
 
 /** Settings Actions */
 export const setAlgorithm = algorithmIndex => ({
@@ -28,13 +30,29 @@ export const setArraySize = size => ({
     payload: {
         arraySize: size
     }
+});
+
+/** Trace Playback Actions */
+export const setTrace = trace => ({
+    type: SET_TRACE,
+    payload: {
+        trace: trace
+    }
+});
+
+export const setInPlayback = (inPlayback) => ({
+    type: SET_IN_PLAYBACK,
+    payload: {
+        inPlayback: inPlayback
+    }
 })
 
 /** Sorting Actions */
 export const resetMetaData = () => ({
     type: RESET_META_DATA,
     payload: {}
-})
+});
+
 export const setArray = array => ({
     type: SET_ARRAY,
     payload: {

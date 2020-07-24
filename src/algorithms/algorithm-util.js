@@ -1,8 +1,4 @@
 import { 
-    setCompared, 
-    setToSwap, 
-    setRunning, 
-    setPivot,
     setArray,
     resetMetaData } from '../store/actions';
 
@@ -14,32 +10,8 @@ const available_algorithms = [
     'Heap Sort'
 ]
 
-const array_sizes = [5, 10, 25, 50, 75, 100, 150]
-const sorting_animation_delays = [500, 250, 100, 50, 25, 0, 0]
-
-const mapArraySizeToSpeed = (arraySize) => {
-    const idx = array_sizes.indexOf(arraySize);
-    return sorting_animation_delays[idx === -1? 2 : idx];
-}
-
-const updateState = (trace, dispatch, arraySize) => {
-    const speed = mapArraySizeToSpeed(arraySize);
-    updateStateHelper(trace, dispatch, speed);
-};
-
-const updateStateHelper = (trace, dispatch, speed) => {
-    if (!trace.length) {
-        dispatch(setCompared([]));
-        dispatch(setToSwap([]));
-        dispatch(setPivot([]));
-        dispatch(setRunning(false));
-        return;
-    }
-    dispatch(trace.shift());
-    setTimeout(() => {
-        updateStateHelper(trace, dispatch, speed)
-    }, speed)
-}
+const array_sizes = [5, 10, 25, 50, 75, 100, 150];
+const sorting_animation_delays = [500, 250, 100, 50, 25, 0, 0];
 
 const createArray = (arraySize, dispatch) => {
     let array = [];
@@ -53,5 +25,5 @@ const createArray = (arraySize, dispatch) => {
 
 export { available_algorithms };
 export { array_sizes };
+export { sorting_animation_delays };
 export { createArray };
-export { updateState };

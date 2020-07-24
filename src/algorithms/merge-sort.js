@@ -1,5 +1,5 @@
-import { setArray, setSorted } from '../store/actions';
-import { updateState } from './algorithm-util';
+import { setArray, setSorted, setTrace } from '../store/actions';
+import { runPlayback } from './algorithm-playback';
 
 const merge = (arr1, arr2, startIdx, endIdx, trace, inPlaceObj, sorted) => {
     let merged = [];
@@ -35,7 +35,8 @@ const mergeSort = (array, dispatch) => {
     let trace = [];
     let sorted = [];
     mergeSortHelper(array, 0, array.length - 1, dispatch, trace, { array: array.slice() }, sorted);
-    updateState(trace, dispatch, array.length);
+    dispatch(setTrace(trace.slice(0)));
+    runPlayback(dispatch, array.length);
 }
 
 /**

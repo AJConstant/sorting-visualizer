@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, CircularProgress } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import ArrowForwardIosSharpIcon from '@material-ui/icons/ArrowForwardIosSharp';
+import PauseSharpIcon from '@material-ui/icons/PauseSharp';
 import { withStyles } from '@material-ui/core';
 
 const styles = theme => ({
@@ -17,25 +18,43 @@ const styles = theme => ({
 });
 
 class RunButton extends React.Component {
-    handleClick = () => {
+    beginSort = () => {
         this.props.beginSort(this.props.selectedIndex, this.props.array);
     }
+
+    resumePlayback = () => {
+        this.props.resumePlayback(this.props.array.length);
+    }
+
+    pausePlayback = () => {
+        this.props.pausePlayback();
+    }
+
     render() {
         const {
             classes,
             running,
+            inPlayback
         } = this.props;
         return (
             <div>
                 <Button
                     variant="contained"
                     className={running ? classes.runButtonDisabled : classes.runButton}
-                    disabled={running}
-                    onClick={this.handleClick}
+                    onClick={running ? 
+                        this.pausePlayback :
+                            inPlayback ?
+                                this.resumePlayback : 
+                                    this.beginSort
+                    }
                     endIcon={running ?
-                        <CircularProgress className={classes.circularProgress} size={20}></CircularProgress> :
+                        <PauseSharpIcon /> :
                         <ArrowForwardIosSharpIcon />
-                    }>{`Sort`}
+                    }>{running ?
+                        'Pause' :
+                            inPlayback ? 
+                                'Resume' : 'Sort'
+                    }
                 </Button>
             </div>
         )

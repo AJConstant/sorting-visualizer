@@ -18,14 +18,20 @@ const styles = theme => ({
 
 
 class RandomizeButton extends React.Component {
-    handleClick = () => {
+    handleClickRandomize = () => {
         this.props.randomizeArray(this.props.array.length);
     }
+
+    handleClickReset = () => {
+        this.props.reset(this.props.array.length);
+    }
+
 
     render() {
         const {
             classes,
-            running
+            running,
+            inPlayback
         } = this.props;
         return (
             <div className={classes.root}>
@@ -33,9 +39,11 @@ class RandomizeButton extends React.Component {
                     variant="outlined"
                     className={running? classes.randomizeButtonDisabled : classes.randomizeButton}
                     disabled={running}
-                    onClick={this.handleClick}
+                    onClick={inPlayback? 
+                        this.handleClickReset :
+                        this.handleClickRandomize}
                     startIcon={<LoopSharpIcon/>}
-                    >{`Randomize`}
+                    >{inPlayback? 'Reset' : 'Randomize'}
                 </Button>
             </div>
         )

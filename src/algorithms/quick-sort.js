@@ -1,5 +1,5 @@
-import { setArray, setPivot, setToSwap, setSorted } from '../store/actions';
-import { updateState } from './algorithm-util';
+import { setArray, setPivot, setToSwap, setSorted, setTrace } from '../store/actions';
+import { runPlayback } from './algorithm-playback';
 
 const partition = (array, startIdx, endIdx, trace, sorted) => {
     let i = startIdx - 1;
@@ -44,7 +44,8 @@ const quickSort = (array, dispatch) => {
     quickSortHelper(tempArray, 0, tempArray.length - 1, trace, sorted);
     sorted.push(array.length-1);
     trace.push(setSorted(sorted.slice(0)));
-    updateState(trace, dispatch, array.length);
+    dispatch(setTrace(trace.slice(0)));
+    runPlayback(dispatch, array.length);
 }
 
 export default quickSort;

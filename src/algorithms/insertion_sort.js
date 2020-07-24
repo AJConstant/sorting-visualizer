@@ -1,5 +1,5 @@
-import { setArray, setCompared, setToSwap, setSorted } from '../store/actions';
-import { updateState } from './algorithm-util';
+import { setArray, setCompared, setToSwap, setSorted, setTrace } from '../store/actions';
+import { runPlayback } from './algorithm-playback';
 
 
 const insertionSort = (array, dispatch) => {
@@ -25,7 +25,8 @@ const insertionSort = (array, dispatch) => {
     }
     sorted.push(len-1);
     trace.push(setSorted(sorted.slice(0)));
-    updateState(trace, dispatch, array.length);
+    dispatch(setTrace(trace.slice(0)));
+    runPlayback(dispatch, array.length);
     return tempArray;
 }
 

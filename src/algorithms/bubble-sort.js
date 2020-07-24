@@ -1,5 +1,5 @@
-import { setCompared, setToSwap, setArray, setSorted } from '../store/actions';
-import { updateState } from './algorithm-util';
+import { setCompared, setToSwap, setArray, setSorted, setTrace } from '../store/actions';
+import { runPlayback } from './algorithm-playback';
 
 const bubbleSort = (array, dispatch) => {
     const len = array.length;
@@ -24,7 +24,8 @@ const bubbleSort = (array, dispatch) => {
     }
     sorted.push(0);
     trace.push(setSorted(sorted.slice()));
-    updateState(trace, dispatch, array.length);
+    dispatch(setTrace(trace.slice(0)));
+    runPlayback(dispatch, array.length);
     return array;
 }
 
