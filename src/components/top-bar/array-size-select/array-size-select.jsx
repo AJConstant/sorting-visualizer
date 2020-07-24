@@ -38,14 +38,14 @@ class ArraySizeSelect extends React.Component {
     render() {
         const {
             classes,
-            running,
+            inPlayback,
             arraySize
         } = this.props;
         return (
             <div className={classes.root}>
                 <Button
                     variant="outlined"
-                    disabled={running}
+                    disabled={inPlayback}
                     onClick={this.openMenu}
                     endIcon={<ArrowDropDownSharpIcon />}>
                     {`Array size: ${arraySize}`}

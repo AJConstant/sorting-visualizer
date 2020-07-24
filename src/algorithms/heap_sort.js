@@ -1,5 +1,5 @@
-import { updateState } from './algorithm-util';
-import { setArray, setSorted, setToSwap } from '../store/actions';
+import { runPlayback } from './algorithm-playback';
+import { setArray, setSorted, setToSwap, setTrace } from '../store/actions';
 
 
 const heapify = (array, len, index, sorted, trace) => {
@@ -46,7 +46,8 @@ const heapSort = (arrayState, dispatch) => {
     }
     sorted.push(0);
     trace.push(setSorted(sorted.slice(0)));
-    updateState(trace, dispatch, array.length);
+    dispatch(setTrace(trace.slice(0)));
+    runPlayback(dispatch, array.length);
     return array;
 }
 

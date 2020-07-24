@@ -37,13 +37,13 @@ class SortingSelect extends React.Component {
         const {
             classes,
             selectedAlgorithm,
-            running
+            inPlayback
         } = this.props;
         return (
             <div className={classes.root}>
                 <Button 
                     variant="outlined"
-                    disabled={running} 
+                    disabled={inPlayback} 
                     onClick={this.openMenu}
                     endIcon={<ArrowDropDownSharpIcon />}>
                     {selectedAlgorithm}

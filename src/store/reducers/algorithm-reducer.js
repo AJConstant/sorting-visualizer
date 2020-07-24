@@ -1,12 +1,14 @@
-import { SET_COMPARED, SET_TO_SWAP, SET_ARRAY, SET_RUNNING, SET_SORTED, RESET_META_DATA, SET_PIVOT } from '../actions';
+import { SET_COMPARED, SET_TO_SWAP, SET_ARRAY, SET_RUNNING, SET_SORTED, RESET_META_DATA, SET_PIVOT, SET_TRACE, SET_IN_PLAYBACK } from '../actions';
 
 const initialState = {
     running: false,
+    inPlayback: false,
     pivot : [],
     array: [],
     compared: [],
     toSwap: [],
-    sorted: []
+    sorted: [],
+    trace: []
 }
 
 const algorithmReducer = (state = initialState, action) => {
@@ -57,6 +59,18 @@ const algorithmReducer = (state = initialState, action) => {
                 toSwap: [],
                 sorted: [],
                 pivot: []
+            }
+        case SET_TRACE:
+            const { trace } = action.payload;
+            return {
+                ...state,
+                trace: trace
+            }
+        case SET_IN_PLAYBACK:
+            const { inPlayback } = action.payload;
+            return {
+                ...state,
+                inPlayback: inPlayback
             }
         default:
             return state;

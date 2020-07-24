@@ -6,7 +6,7 @@ import { setArraySize } from '../../../store/actions';
 const mapStateToProps = state => {
     return{
         classes: state.classes,
-        running: state.arrayState.running,
+        inPlayback: state.arrayState.inPlayback,
         arraySize: state.settings.arraySize
     }
 }
