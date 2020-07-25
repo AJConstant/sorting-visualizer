@@ -4,11 +4,9 @@ import VisualizerBody from "./visualizer-body/visualizer-body-container";
 import { withStyles } from "@material-ui/core";
 
 const styles = theme => ({
-    appRoot: {
-
-    },
-    bodyRoot: {
-
+    divider : {
+        marginTop: '95px',
+        height: '180px'
     }
 })
 
@@ -22,6 +20,7 @@ class App extends Component {
         return (
             <div className={classes.appRoot}>
                 <TopBar></TopBar>
+                <div className={classes.divider}></div>
                 <div className={classes.bodyRoot}>
                     <VisualizerBody></VisualizerBody>
                 </div>

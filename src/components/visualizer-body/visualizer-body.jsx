@@ -2,17 +2,6 @@ import React from 'react';
 import { withStyles, Grid } from '@material-ui/core';
 
 const styles = theme => ({
-    root: {
-        width: '100%',
-        position: 'absolute',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        padding: theme.spacing(2),
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyConent: 'center'
-    },
     arrayElement: {
         backgroundColor: theme.palette.primary.light,
         marginLeft: '3px',
@@ -53,7 +42,7 @@ class VisualizerBody extends React.Component {
             case 150:
                 return 5;
             default:
-                return 5;
+                return 4;
         }
     }
 
@@ -67,7 +56,7 @@ class VisualizerBody extends React.Component {
             pivot,
         } = this.props;
         return (
-            <div className={classes.root}>
+            <div>
                 <Grid
                     container
                     justify="center"
