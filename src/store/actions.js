@@ -9,6 +9,7 @@ export const SET_ARRAY_SIZE = "SET_ARRAY_SIZE";
 export const RESET_META_DATA = "RESET_META_DATA";
 export const SET_TRACE = "SET_TRACE";
 export const SET_IN_PLAYBACK = "SET_IN_PLAYBACK";
+export const TOGGLE_DARK_MODE = "TOGGLE_DARK MODE";
 
 /** Settings Actions */
 export const setAlgorithm = algorithmIndex => ({
@@ -17,6 +18,11 @@ export const setAlgorithm = algorithmIndex => ({
         algorithmIndex:  algorithmIndex 
     }
 });
+
+export const toggleDarkMode = () => ({
+    type: TOGGLE_DARK_MODE,
+    payload: {}
+})
 
 export const setRunning = running => ({
     type: SET_RUNNING,
